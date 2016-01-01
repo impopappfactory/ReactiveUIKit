@@ -24,7 +24,7 @@
 
 #if os(iOS)
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UISlider {
