@@ -24,7 +24,6 @@
 
 #if os(iOS)
   
-import ReactiveKit
 import UIKit
 
 extension UIRefreshControl {
@@ -33,11 +32,11 @@ extension UIRefreshControl {
     static var RefreshingKey = "r_RefreshingKey"
   }
   
-  public var rRefreshing: Property<Bool> {
+  public var rRefreshing: ObservableProperty<Bool> {
     if let rRefreshing: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.RefreshingKey) {
-      return rRefreshing as! Property<Bool>
+      return rRefreshing as! ObservableProperty<Bool>
     } else {
-      let rRefreshing = Property<Bool>(self.refreshing)
+      let rRefreshing = ObservableProperty<Bool>(self.refreshing)
       objc_setAssociatedObject(self, &AssociatedKeys.RefreshingKey, rRefreshing, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false

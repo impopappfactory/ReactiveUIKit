@@ -22,12 +22,11 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
 import UIKit
 
 extension UIButton {
   
-  public var rTitle: Property<String?> {
+  public var rTitle: ObservableProperty<String?> {
     return rAssociatedPropertyForValueForKey("title", initial: self.titleLabel?.text) { [weak self] title in
       self?.setTitle(title, forState: UIControlState.Normal)
     }
@@ -37,11 +36,11 @@ extension UIButton {
     return self.rControlEvent.filter { $0 == UIControlEvents.TouchUpInside }.map { e in }
   }
   
-  public var rSelected: Property<Bool> {
+  public var rSelected: ObservableProperty<Bool> {
     return rAssociatedPropertyForValueForKey("selected")
   }
   
-  public var rHighlighted: Property<Bool> {
+  public var rHighlighted: ObservableProperty<Bool> {
     return rAssociatedPropertyForValueForKey("highlighted")
   }
 }

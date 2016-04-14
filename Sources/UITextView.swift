@@ -23,7 +23,6 @@
 //
 
 
-import ReactiveKit
 import UIKit
 
 extension UITextView {
@@ -33,11 +32,11 @@ extension UITextView {
     static var AttributedTextKey = "r_AttributedTextKey"
   }
   
-  public var rText: Property<String?> {
+  public var rText: ObservableProperty<String?> {
     if let rText: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.TextKey) {
-      return rText as! Property<String?>
+      return rText as! ObservableProperty<String?>
     } else {
-      let rText = Property<String?>(self.text)
+      let rText = ObservableProperty<String?>(self.text)
       objc_setAssociatedObject(self, &AssociatedKeys.TextKey, rText, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false
@@ -62,11 +61,11 @@ extension UITextView {
     }
   }
   
-  public var rAttributedText: Property<NSAttributedString?> {
+  public var rAttributedText: ObservableProperty<NSAttributedString?> {
     if let rAttributedText: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.AttributedTextKey) {
-      return rAttributedText as! Property<NSAttributedString?>
+      return rAttributedText as! ObservableProperty<NSAttributedString?>
     } else {
-      let rAttributedText = Property<NSAttributedString?>(self.attributedText)
+      let rAttributedText = ObservableProperty<NSAttributedString?>(self.attributedText)
       objc_setAssociatedObject(self, &AssociatedKeys.AttributedTextKey, rAttributedText, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false
@@ -91,7 +90,7 @@ extension UITextView {
     }
   }
   
-  public var rTextColor: Property<UIColor?> {
+  public var rTextColor: ObservableProperty<UIColor?> {
     return rAssociatedPropertyForValueForKey("textColor")
   }
 }

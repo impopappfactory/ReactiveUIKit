@@ -22,12 +22,11 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
 import UIKit
 
 extension UIActivityIndicatorView {
   
-  public var rAnimating: Property<Bool> {
+  public var rAnimating: ObservableProperty<Bool> {
     return rAssociatedPropertyForValueForKey("isAnimating", initial: self.isAnimating()) { [weak self] animating in
       if animating {
         self?.startAnimating()

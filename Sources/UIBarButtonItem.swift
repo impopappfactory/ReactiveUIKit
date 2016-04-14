@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReactiveKit
 
 @objc class RKUIBarButtonItemHelper: NSObject
 {

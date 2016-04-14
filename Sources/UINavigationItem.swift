@@ -22,12 +22,11 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
 import UIKit
 
 extension UINavigationItem {
   
-  public var rTitle: Property<String?> {
+  public var rTitle: ObservableProperty<String?> {
     return rAssociatedPropertyForValueForKey("title")
   }
 }
