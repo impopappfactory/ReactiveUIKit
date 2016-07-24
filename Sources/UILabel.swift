@@ -22,20 +22,20 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UILabel {
   
-  public var rText: Property<String?> {
+  public var rText: ReactiveProperty<String?> {
     return rAssociatedPropertyForValueForKey("text")
   }
   
-  public var rAttributedText: Property<NSAttributedString?> {
+  public var rAttributedText: ReactiveProperty<NSAttributedString?> {
     return rAssociatedPropertyForValueForKey("attributedText")
   }
   
-  public var rTextColor: Property<UIColor?> {
+  public var rTextColor: ReactiveProperty<UIColor?> {
     return rAssociatedPropertyForValueForKey("textColor")
   }
 }

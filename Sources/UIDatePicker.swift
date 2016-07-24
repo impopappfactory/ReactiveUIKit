@@ -24,7 +24,7 @@
 
 #if os(iOS)
   
-import ReactiveKit
+//import ReactiveKit
 import UIKit
   
 extension UIDatePicker {
@@ -33,11 +33,11 @@ extension UIDatePicker {
     static var DateKey = "r_DateKey"
   }
   
-  public var rDate: Property<NSDate> {
+  public var rDate: ReactiveProperty<NSDate> {
     if let rDate: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.DateKey) {
-      return rDate as! Property<NSDate>
+      return rDate as! ReactiveProperty<NSDate>
     } else {
-      let rDate = Property<NSDate>(self.date)
+      let rDate = ReactiveProperty<NSDate>(self.date)
       objc_setAssociatedObject(self, &AssociatedKeys.DateKey, rDate, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false

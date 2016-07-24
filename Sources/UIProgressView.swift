@@ -22,12 +22,12 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UIProgressView {
   
-  public var rProgress: Property<Float> {
+  public var rProgress: ReactiveProperty<Float> {
     return rAssociatedPropertyForValueForKey("progress")
   }
 }

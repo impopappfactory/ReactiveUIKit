@@ -23,7 +23,7 @@
 //
 
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UISegmentedControl {
@@ -32,11 +32,11 @@ extension UISegmentedControl {
     static var SelectedSegmentIndexKey = "r_SelectedSegmentIndexKey"
   }
   
-  public var rSelectedSegmentIndex: Property<Int> {
+  public var rSelectedSegmentIndex: ReactiveProperty<Int> {
     if let rSelectedSegmentIndex: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.SelectedSegmentIndexKey) {
-      return rSelectedSegmentIndex as! Property<Int>
+      return rSelectedSegmentIndex as! ReactiveProperty<Int>
     } else {
-      let rSelectedSegmentIndex = Property<Int>(self.selectedSegmentIndex)
+      let rSelectedSegmentIndex = ReactiveProperty<Int>(self.selectedSegmentIndex)
       objc_setAssociatedObject(self, &AssociatedKeys.SelectedSegmentIndexKey, rSelectedSegmentIndex, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false

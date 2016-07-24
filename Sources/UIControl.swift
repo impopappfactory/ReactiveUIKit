@@ -23,7 +23,7 @@
 //
 
 import UIKit
-import ReactiveKit
+//import ReactiveKit
 
 @objc class RKUIControlHelper: NSObject
 {
@@ -127,7 +127,7 @@ extension UIControl {
     }
   }
   
-  public var rEnabled: Property<Bool> {
+  public var rEnabled: ReactiveProperty<Bool> {
     return rAssociatedPropertyForValueForKey("enabled")
   }
 }

@@ -22,7 +22,7 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 private func applyRowUnitChangeSet<C: CollectionChangesetType where C.Collection.Index == Int>(changeSet: C, collectionView: UICollectionView, sectionIndex: Int) {
@@ -56,8 +56,8 @@ extension StreamType where Element: CollectionChangesetType, Element.Collection.
     typealias Collection = Element.Collection
 
     let dataSource = collectionView.rDataSource
-    let numberOfItems = Property(0)
-    let collection = Property<Collection!>(nil)
+    let numberOfItems = ReactiveProperty(0)
+    let collection = ReactiveProperty<Collection!>(nil)
 
     dataSource.feed(
       collection,
@@ -73,7 +73,7 @@ extension StreamType where Element: CollectionChangesetType, Element.Collection.
     )
 
     dataSource.feed(
-      Property(1),
+      ReactiveProperty(1),
       to: #selector(UICollectionViewDataSource.numberOfSectionsInCollectionView(_:)),
       map: { (value: Int, _: UICollectionView) -> Int in value }
     )

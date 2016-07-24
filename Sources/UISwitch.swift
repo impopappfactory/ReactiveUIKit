@@ -24,7 +24,7 @@
 
 #if os(iOS)
   
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UISwitch {
@@ -33,11 +33,11 @@ extension UISwitch {
     static var OnKey = "r_OnKey"
   }
   
-  public var rOn: Property<Bool> {
+  public var rOn: ReactiveProperty<Bool> {
     if let rOn: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.OnKey) {
-      return rOn as! Property<Bool>
+      return rOn as! ReactiveProperty<Bool>
     } else {
-      let rOn = Property<Bool>(self.on)
+      let rOn = ReactiveProperty<Bool>(self.on)
       objc_setAssociatedObject(self, &AssociatedKeys.OnKey, rOn, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false

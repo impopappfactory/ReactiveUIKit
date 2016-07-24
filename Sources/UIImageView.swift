@@ -22,12 +22,12 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UIImageView {
   
-  public var rImage: Property<UIImage?> {
+  public var rImage: ReactiveProperty<UIImage?> {
     return rAssociatedPropertyForValueForKey("image")
   }
 }

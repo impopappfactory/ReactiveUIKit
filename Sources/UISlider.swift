@@ -24,7 +24,7 @@
 
 #if os(iOS)
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UISlider {
@@ -33,11 +33,11 @@ extension UISlider {
     static var ValueKey = "r_ValueKey"
   }
   
-  public var rValue: Property<Float> {
+  public var rValue: ReactiveProperty<Float> {
     if let rValue: AnyObject = objc_getAssociatedObject(self, &AssociatedKeys.ValueKey) {
-      return rValue as! Property<Float>
+      return rValue as! ReactiveProperty<Float>
     } else {
-      let rValue = Property<Float>(self.value)
+      let rValue = ReactiveProperty<Float>(self.value)
       objc_setAssociatedObject(self, &AssociatedKeys.ValueKey, rValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       
       var updatingFromSelf: Bool = false

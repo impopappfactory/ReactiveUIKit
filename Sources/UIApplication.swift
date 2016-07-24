@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import ReactiveKit
+//import ReactiveKit
 
 extension UIApplication {
 
-  public var rNetworkActivityIndicatorVisible: Property<Bool> {
+  public var rNetworkActivityIndicatorVisible: ReactiveProperty<Bool> {
     return rAssociatedPropertyForValueForKey("networkActivityIndicatorVisible")
   }
 }

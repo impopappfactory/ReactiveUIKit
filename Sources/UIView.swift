@@ -22,28 +22,28 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UIView {
   
-  public var rAlpha: Property<CGFloat> {
+  public var rAlpha: ReactiveProperty<CGFloat> {
     return rAssociatedPropertyForValueForKey("alpha")
   }
   
-  public var rBackgroundColor: Property<UIColor?> {
+  public var rBackgroundColor: ReactiveProperty<UIColor?> {
     return rAssociatedPropertyForValueForKey("backgroundColor")
   }
   
-  public var rHidden: Property<Bool> {
+  public var rHidden: ReactiveProperty<Bool> {
     return rAssociatedPropertyForValueForKey("hidden")
   }
   
-  public var rUserInteractionEnabled: Property<Bool> {
+  public var rUserInteractionEnabled: ReactiveProperty<Bool> {
     return rAssociatedPropertyForValueForKey("userInteractionEnabled")
   }
   
-  public var rTintColor: Property<UIColor?> {
+  public var rTintColor: ReactiveProperty<UIColor?> {
     return rAssociatedPropertyForValueForKey("tintColor")
   }
 }

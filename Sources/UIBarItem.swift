@@ -22,20 +22,20 @@
 //  THE SOFTWARE.
 //
 
-import ReactiveKit
+//import ReactiveKit
 import UIKit
 
 extension UIBarItem {
   
-  public var rTitle: Property<String?> {
+  public var rTitle: ReactiveProperty<String?> {
     return rAssociatedPropertyForValueForKey("title")
   }
   
-  public var rImage: Property<UIImage?> {
+  public var rImage: ReactiveProperty<UIImage?> {
     return rAssociatedPropertyForValueForKey("image")
   }
   
-  public var rEnabled: Property<Bool> {
+  public var rEnabled: ReactiveProperty<Bool> {
     return rAssociatedPropertyForValueForKey("enabled")
   }
 }
