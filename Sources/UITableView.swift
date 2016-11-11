@@ -26,24 +26,20 @@
 import UIKit
 
 private func applyRowUnitChangeSet<C: CollectionChangesetType where C.Collection.Index == Int>(changeSet: C, tableView: UITableView, sectionIndex: Int) {
-    if let visibleRows = tableView.indexPathsForVisibleRows {
-        tableView.reloadRowsAtIndexPaths(visibleRows, withRowAnimation: .None)
-    }
+  if changeSet.inserts.count > 0 {
+    let indexPaths = changeSet.inserts.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
+    tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+  }
 
-    if changeSet.inserts.count > 0 {
-        let indexPaths = changeSet.inserts.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-    }
+  if changeSet.updates.count > 0 {
+    let indexPaths = changeSet.updates.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
+    tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+  }
 
-    if changeSet.updates.count > 0 {
-        let indexPaths = changeSet.updates.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
-        tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-    }
-
-    if changeSet.deletes.count > 0 {
-        let indexPaths = changeSet.deletes.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
-        tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-    }
+  if changeSet.deletes.count > 0 {
+    let indexPaths = changeSet.deletes.map { NSIndexPath(forItem: $0, inSection: sectionIndex) }
+    tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+  }
 }
 
 extension StreamType where Element: ArrayConvertible {
